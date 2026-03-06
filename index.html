@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Trust and Understanding of Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <h1>Global Trust and Understanding of Science</h1>
+            <p class="subtitle">How people around the world perceive science, scientists, and health institutions</p>
+        </div>
+    </header>
+
+    <div id="controls">
+        <div class="controls-inner">
+            <div class="control-group">
+                <label for="dataSelector">Question</label>
+                <select id="dataSelector"></select>
+            </div>
+            <div class="control-group">
+                <label for="mapModeSelector">View</label>
+                <select id="mapModeSelector">
+                    <option value="absolute">Absolute Values</option>
+                    <option value="difference">Difference from Global Avg.</option>
+                </select>
+            </div>
+            <div class="control-group search-wrapper">
+                <label for="countrySearch">Search</label>
+                <div class="search-input-wrap">
+                    <input type="text" id="countrySearch" placeholder="Find a country…" autocomplete="off">
+                    <div id="searchResults"></div>
+                </div>
+            </div>
+            <div class="control-group">
+                <button id="resetZoom">Reset Zoom</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="content-wrapper">
+        <div id="left-column">
+            <div id="legend">
+                <div id="legend-title"></div>
+            </div>
+            <div id="globalAverage"></div>
+        </div>
+        <div id="map-container">
+            <svg id="map"></svg>
+        </div>
+    </div>
+
+    <div id="detail-panel" class="hidden">
+        <div id="panel-header">
+            <div id="panel-header-text">
+                <h2 id="panel-country-name"></h2>
+                <span id="panel-region"></span>
+                <span id="panel-rank"></span>
+            </div>
+            <button id="close-panel" title="Close">×</button>
+        </div>
+        <div id="panel-chart"></div>
+    </div>
+
+    <div id="tooltip"></div>
+
+    <footer>
+        <p>
+            Data source: <a href="https://wellcome.org/insights/reports/wellcome-global-monitor-covid-19/2020" target="_blank" rel="noopener noreferrer">Wellcome Global Monitor — COVID-19 (2020)</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
